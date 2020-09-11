@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import { v4 as uuidv4 } from 'uuid';
 
 // Create a component function
 function ToDo ()
@@ -19,9 +20,9 @@ function ToDo ()
 
     // Set up state for to-do list items. 
     const [toDos, setToDos] = useState( [  // Default list of To-Do items.
-        { task: "Unlock the Boss Door" },
-        { task: "Reach level 10" },
-        { task: "Main Quest: Defeat the Pyromancer" }
+        { id: uuidv4(), task: "Unlock the Boss Door" },
+        { id: uuidv4(), task: "Reach level 10" },
+        { id: uuidv4(), task: "Main Quest: Defeat the Pyromancer" }
     // Turn the array into a map with key-value pairs, easy to output in JSX this way. 
     ] ); // Defining an assignment deconstructor
 
@@ -36,7 +37,7 @@ const newToDosList = [...toDos];   // Fresh array with the same values as toDos
 
 // !! Remember, we never update the state variable directly. 
 // Now we add a new task to our new array (push), but make sure it matches the other objects in the array (giving it task: )
-newToDosList.push( { task: newTask } );
+newToDosList.push( { id: uuidv4(), task: newTask } );
 
 // Now we try to update the state:
 setToDos ( newToDosList );
@@ -59,7 +60,7 @@ setNewTask( '' );   // Set it to blank after submission so the user doesn't have
             </p>
             <input type="submit" value="Add To-Do" />
         </form>
-    <ul>{toDos.map( ( toDo, index ) => <li key={index}>{toDo.task}</li> )}</ul>    
+    <ul>{toDos.map( toDo => <li key={ToDo.id}>{toDo.task}</li> )}</ul>    
         </>
     );
 }
