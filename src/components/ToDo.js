@@ -26,9 +26,16 @@ function ToDo ()
     ] ); // Defining an assignment deconstructor
 
 
+    // Make a function that adds a new task to the UL
+const addNewTask = event => {
+    // Don't let the page reload for the submission...! Prevents default action.
+    event.preventDefault();
+    
+}
+
     return (    // The return is the output of the component, we will use a form, which will render
         <>
-        <form >
+        <form onSubmit={addNewTask}>
             <label htmlFor="task">New Task:</label>
             <input 
             type="text" 
