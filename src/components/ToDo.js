@@ -23,12 +23,12 @@ function ToDo ()
         { task: "Learn React" },
         { task: "Learn about Redux" }
     // Turn the array into a map with key-value pairs, easy to output in JSX this way. 
-    ].map( ( toDo, index ) => <li key={index}>{toDo.task}</li> ) ); // Defining an assignment deconstructor
+    ] ); // Defining an assignment deconstructor
 
 
     return (    // The return is the output of the component, we will use a form, which will render
         <>
-        <form>
+        <form >
             <label htmlFor="task">New Task:</label>
             <input 
             type="text" 
@@ -41,7 +41,7 @@ function ToDo ()
             </p>
             <input type="submit" value="Add To-Do" />
         </form>
-    <ul>{toDos}</ul>    
+    <ul>{toDos.map( ( toDo, index ) => <li key={index}>{toDo.task}</li> )}</ul>    
         </>
     );
 }
