@@ -30,7 +30,7 @@ function ToDo ()
 const addNewTask = event => {
     // Don't let the page reload for the submission...! Prevents default action.
     event.preventDefault();
-    
+    // TODO: Add new task to list, output in render.
 }
 
     return (    // The return is the output of the component, we will use a form, which will render
