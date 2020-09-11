@@ -19,9 +19,9 @@ function ToDo ()
 
     // Set up state for to-do list items. 
     const [toDos, setToDos] = useState( [  // Default list of To-Do items.
-        { task: "Buy Milk" },
-        { task: "Learn React" },
-        { task: "Learn about Redux" }
+        { task: "Unlock the Boss Door" },
+        { task: "Reach level 10" },
+        { task: "Main Quest: Defeat the Pyromancer" }
     // Turn the array into a map with key-value pairs, easy to output in JSX this way. 
     ] ); // Defining an assignment deconstructor
 
@@ -30,7 +30,18 @@ function ToDo ()
 const addNewTask = event => {
     // Don't let the page reload for the submission...! Prevents default action.
     event.preventDefault();
-    // TODO: Add new task to list, output in render.
+
+ //'...' spread operator to break up an array, so that we can each item inside is treated as an argument (value separated by comma)
+const newToDosList = [...toDos];   // Fresh array with the same values as toDos
+
+// !! Remember, we never update the state variable directly. 
+// Now we add a new task to our new array (push), but make sure it matches the other objects in the array (giving it task: )
+newToDosList.push( { task: newTask } );
+
+// Now we try to update the state:
+setToDos ( newToDosList );
+
+setNewTask( '' );   // Set it to blank after submission so the user doesn't have to erase!
 }
 
     return (    // The return is the output of the component, we will use a form, which will render
